@@ -1,0 +1,15 @@
+{
+  "task": "sample_task.txt",
+  "conversation": "sample_conversation.md",
+  "repository": "sample_repo",
+  "budget": 6000,
+  "expected_relevant_files": [
+    "src/configuration.py",
+    "src/calendar.py",
+    "tests/test_configuration.py"
+  ],
+  "expected_irrelevant_files": [
+    "src/unrelated.py",
+    "tests/test_unrelated.py"
+  ]
+}

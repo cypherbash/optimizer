@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/token-optimizer/context-state.schema.json",
+  "title": "Token Optimizer Context State",
+  "type": "object",
+  "required": ["goal"],
+  "properties": {
+    "goal": {"type": "string"},
+    "tasks": {"$ref": "#/$defs/evidenceList"},
+    "hard_constraints": {"$ref": "#/$defs/evidenceList"},
+    "soft_constraints": {"$ref": "#/$defs/evidenceList"},
+    "relevant_facts": {"$ref": "#/$defs/evidenceList"},
+    "decisions": {"$ref": "#/$defs/evidenceList"},
+    "open_questions": {"$ref": "#/$defs/evidenceList"},
+    "important_identifiers": {"$ref": "#/$defs/evidenceList"},
+    "relevant_files": {"$ref": "#/$defs/evidenceList"},
+    "current_errors": {"$ref": "#/$defs/evidenceList"},
+    "current_behavior": {"$ref": "#/$defs/evidenceList"},
+    "desired_behavior": {"$ref": "#/$defs/evidenceList"},
+    "recent_actions": {"$ref": "#/$defs/evidenceList"},
+    "assumptions": {"$ref": "#/$defs/evidenceList"},
+    "conflicts": {"$ref": "#/$defs/evidenceList"},
+    "rejected_approaches": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/rejectedApproach"}
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "importance": {
+      "type": "string",
+      "enum": ["critical", "high", "medium", "low"]
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["text", "source", "importance"],
+      "properties": {
+        "text": {"type": "string", "minLength": 1},
+        "source": {"type": "string", "minLength": 1},
+        "importance": {"$ref": "#/$defs/importance"},
+        "provenance": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "evidenceList": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/evidence"}
+    },
+    "rejectedApproach": {
+      "type": "object",
+      "required": ["approach", "reason", "source", "importance"],
+      "properties": {
+        "approach": {"type": "string", "minLength": 1},
+        "reason": {"type": "string", "minLength": 1},
+        "source": {"type": "string", "minLength": 1},
+        "importance": {"$ref": "#/$defs/importance"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

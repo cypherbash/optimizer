@@ -1,0 +1,2 @@
+Change Configuration.calendar_for() so inherited location periods are resolved by
+Calendar.resolve() without changing the public API. Preserve backwards compatibility.

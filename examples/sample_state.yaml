@@ -1,0 +1,24 @@
+{
+  "goal": "Change Configuration.calendar_for() without changing the public API.",
+  "tasks": [],
+  "hard_constraints": [
+    {
+      "text": "Preserve backwards compatibility.",
+      "source": "conversation",
+      "importance": "critical"
+    }
+  ],
+  "soft_constraints": [],
+  "relevant_facts": [],
+  "decisions": [],
+  "rejected_approaches": [],
+  "open_questions": [],
+  "important_identifiers": [],
+  "relevant_files": [],
+  "current_errors": [],
+  "current_behavior": [],
+  "desired_behavior": [],
+  "recent_actions": [],
+  "assumptions": [],
+  "conflicts": []
+}
